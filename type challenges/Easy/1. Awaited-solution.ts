@@ -1,4 +1,8 @@
-type MyAwaited<T> = unknown
+type MyAwaited<T extends PromiseLike<any>> = T extends PromiseLike<infer P>
+    ? P extends PromiseLike<unknown>
+        ? MyAwaited<P>
+        : P
+    : never
 
 /* _____________ Test Cases _____________ */
 import type { Equal, Expect } from '../utils'
