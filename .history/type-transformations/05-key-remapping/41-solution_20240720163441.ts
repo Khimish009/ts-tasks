@@ -7,7 +7,7 @@ interface FruitMap {
 }
 
 type TransformedFruit = {
-  [K in keyof FruitMap]: `${K}:${FruitMap[K]}`
+  [K in keyof FruitMap]: `${K}${FruitMap[K]}`
 }[keyof FruitMap];
 
 type tests = [

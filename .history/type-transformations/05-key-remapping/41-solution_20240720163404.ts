@@ -6,9 +6,7 @@ interface FruitMap {
   orange: "orange";
 }
 
-type TransformedFruit = {
-  [K in keyof FruitMap]: `${K}:${FruitMap[K]}`
-}[keyof FruitMap];
+type TransformedFruit = ;
 
 type tests = [
   Expect<

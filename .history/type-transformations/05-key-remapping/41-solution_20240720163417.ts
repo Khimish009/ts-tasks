@@ -7,8 +7,8 @@ interface FruitMap {
 }
 
 type TransformedFruit = {
-  [K in keyof FruitMap]: `${K}:${FruitMap[K]}`
-}[keyof FruitMap];
+  [K in keyof FruitMap]: 
+};
 
 type tests = [
   Expect<
