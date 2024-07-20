@@ -10,10 +10,10 @@ interface Example {
 // my solution
 // type OnlyIdKeys<T> = { [K in keyof T as Extract<K, `${string}Id` | 'id'>]: T[K] };
 
-type SearchForId = `${string}${'id' | 'Id'}`
+// type SearchForId = 
 
 type OnlyIdKeys<T> = { 
-  [K in keyof T as K extends SearchForId ? K : never]: T[K]
+  [K in keyof T as K extends ]: T[K]
 }
 
 type tests = [

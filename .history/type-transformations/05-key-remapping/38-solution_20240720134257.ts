@@ -7,21 +7,15 @@ interface Example {
   organisationId: string;
   groupId: string;
 }
-// my solution
-// type OnlyIdKeys<T> = { [K in keyof T as Extract<K, `${string}Id` | 'id'>]: T[K] };
 
-type SearchForId = `${string}${'id' | 'Id'}`
-
-type OnlyIdKeys<T> = { 
-  [K in keyof T as K extends SearchForId ? K : never]: T[K]
-}
+type OnlyIdKeys<T> = { [K in keyof T as Exclude<K, `${string}Id`>]: T[] };
 
 type tests = [
   Expect<
     Equal<
       OnlyIdKeys<Example>,
       {
-        id: string;
+        // id: string;
         organisationId: string;
         groupId: string;
       }

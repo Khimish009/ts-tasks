@@ -7,14 +7,8 @@ interface Example {
   organisationId: string;
   groupId: string;
 }
-// my solution
-// type OnlyIdKeys<T> = { [K in keyof T as Extract<K, `${string}Id` | 'id'>]: T[K] };
 
-type SearchForId = `${string}${'id' | 'Id'}`
-
-type OnlyIdKeys<T> = { 
-  [K in keyof T as K extends SearchForId ? K : never]: T[K]
-}
+type OnlyIdKeys<T> = { [K in keyof T as Extract<K, ``>]: T[] };
 
 type tests = [
   Expect<
