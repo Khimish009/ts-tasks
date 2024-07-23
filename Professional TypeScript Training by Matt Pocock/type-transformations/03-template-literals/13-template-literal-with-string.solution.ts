@@ -9,6 +9,5 @@ goToRoute("/");
 goToRoute("/admin/users");
 
 // Should error:
-
 goToRoute("users/1");
 goToRoute("http://facebook.com");
